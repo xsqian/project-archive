@@ -1,0 +1,56 @@
+kind: serving
+metadata:
+  name: srv
+  hash: 698889ecfc65e413cb6a8d7be028aac066d71eaa
+  project: git-proj-yaron
+  categories: []
+spec:
+  command: srv.py
+  args: []
+  image: mlrun/mlrun
+  build:
+    source: ./
+    commands: []
+    code_origin: https://github.com/yaronha/arch-test.git#dce797f6547027b44f0b94252d85c641bd41ed54
+  description: ''
+  disable_auto_mount: false
+  env: []
+  resources:
+    requests:
+      memory: 1Mi
+      cpu: 25m
+    limits:
+      memory: 20Gi
+      cpu: '2'
+  priority_class_name: igz-workload-medium
+  preemption_mode: prevent
+  min_replicas: 1
+  max_replicas: 4
+  source: ''
+  function_kind: serving_v2
+  graph:
+    steps:
+      echo:
+        kind: task
+        handler: rootlib.my_step
+        responder: true
+  secret_sources: []
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: app.iguazio.com/lifecycle
+            operator: NotIn
+            values:
+            - preemptible
+          - key: eks.amazonaws.com/capacityType
+            operator: NotIn
+            values:
+            - SPOT
+          - key: node-lifecycle
+            operator: NotIn
+            values:
+            - spot
+  tolerations: null
+verbose: false

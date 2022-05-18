@@ -1,0 +1,19 @@
+kind: project
+metadata:
+  name: git-proj-yaron
+spec:
+  functions:
+  - name: myjob
+    kind: job
+    image: mlrun/mlrun
+    handler: rootfn.job_handler
+    with_repo: true
+  - url: srv.yaml
+    name: srv
+    with_repo: true
+  workflows: []
+  artifacts: []
+  source: https://github.com/yaronha/arch-test.git#main
+  origin_url: git://github.com/yaronha/arch-test.git#refs/heads/main
+  load_source_on_run: false
+  desired_state: online
