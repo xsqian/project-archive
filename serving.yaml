@@ -1,17 +1,37 @@
 kind: serving
 metadata:
-  name: srv
-  hash: 698889ecfc65e413cb6a8d7be028aac066d71eaa
+  name: serving
+  hash: a3b497f6e3af2bf67e0bd6687be5f5ea601ce38c
   project: git-proj-yaron
   categories: []
 spec:
-  command: srv.py
+  command: ''
   args: []
   image: mlrun/mlrun
   build:
-    source: ./
+    functionSourceCode: IApmcm9tIG1scnVuLnJ1bnRpbWVzIGltcG9ydCBudWNsaW9faW5pdF9ob29rCmRlZiBpbml0X2NvbnRleHQoY29udGV4dCk6CiAgICBudWNsaW9faW5pdF9ob29rKGNvbnRleHQsIGdsb2JhbHMoKSwgJ3NlcnZpbmdfdjInKQoKZGVmIGhhbmRsZXIoY29udGV4dCwgZXZlbnQpOgogICAgcmV0dXJuIGNvbnRleHQubWxydW5faGFuZGxlcihjb250ZXh0LCBldmVudCkK
     commands: []
-    code_origin: https://github.com/yaronha/arch-test.git#dce797f6547027b44f0b94252d85c641bd41ed54
+  entry_points:
+    init_context:
+      name: init_context
+      doc: ''
+      parameters:
+      - name: context
+        default: ''
+      outputs:
+      - default: ''
+      lineno: 3
+    handler:
+      name: handler
+      doc: ''
+      parameters:
+      - name: context
+        default: ''
+      - name: event
+        default: ''
+      outputs:
+      - default: ''
+      lineno: 6
   description: ''
   disable_auto_mount: false
   env: []
@@ -30,9 +50,19 @@ spec:
   function_kind: serving_v2
   graph:
     steps:
+      double:
+        kind: task
+        handler: mylib.double
+      add3:
+        kind: task
+        handler: mylib.add3
+        after:
+        - double
       echo:
         kind: task
-        handler: rootlib.my_step
+        handler: mylib.echo
+        after:
+        - add3
         responder: true
   secret_sources: []
   affinity:
