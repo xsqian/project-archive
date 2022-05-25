@@ -1,7 +1,7 @@
 kind: serving
 metadata:
   name: serving
-  hash: a3b497f6e3af2bf67e0bd6687be5f5ea601ce38c
+  hash: e2bd07c2e3f28bf920b10de6f2163988ef62fe6f
   project: git-proj-yaron
   categories: []
 spec:
@@ -9,29 +9,7 @@ spec:
   args: []
   image: mlrun/mlrun
   build:
-    functionSourceCode: IApmcm9tIG1scnVuLnJ1bnRpbWVzIGltcG9ydCBudWNsaW9faW5pdF9ob29rCmRlZiBpbml0X2NvbnRleHQoY29udGV4dCk6CiAgICBudWNsaW9faW5pdF9ob29rKGNvbnRleHQsIGdsb2JhbHMoKSwgJ3NlcnZpbmdfdjInKQoKZGVmIGhhbmRsZXIoY29udGV4dCwgZXZlbnQpOgogICAgcmV0dXJuIGNvbnRleHQubWxydW5faGFuZGxlcihjb250ZXh0LCBldmVudCkK
     commands: []
-  entry_points:
-    init_context:
-      name: init_context
-      doc: ''
-      parameters:
-      - name: context
-        default: ''
-      outputs:
-      - default: ''
-      lineno: 3
-    handler:
-      name: handler
-      doc: ''
-      parameters:
-      - name: context
-        default: ''
-      - name: event
-        default: ''
-      outputs:
-      - default: ''
-      lineno: 6
   description: ''
   disable_auto_mount: false
   env: []
