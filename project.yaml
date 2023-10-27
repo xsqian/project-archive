@@ -5,7 +5,8 @@ metadata:
 spec:
   description: my new project
   functions:
-  - name: myjob
+  - url: src/job_func.py
+    name: myjob
     kind: job
     image: mlrun/mlrun
     handler: src.job_func.job_handler
@@ -23,7 +24,7 @@ spec:
   conda: ''
   source: git://github.com/xsqian/project-archive.git#refs/heads/main
   origin_url: git://github.com/xsqian/project-archive.git#refs/heads/main
-  load_source_on_run: false
+  load_source_on_run: true
   desired_state: online
   build:
     commands: []
