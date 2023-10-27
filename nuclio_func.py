@@ -13,7 +13,7 @@
 # limitations under the License.
 #
 # contain function code (this) and locally imported lib (mylib)
-from mylib import myfunc
+from src.mylib import myfunc
 
 
 # mlrun nuclio runtime entry

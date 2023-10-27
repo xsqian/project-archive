@@ -1,7 +1,7 @@
 kind: serving
 metadata:
   name: serving
-  hash: 7c426020a967cdab51a942d7ea3db03c1b99d394
+  hash: 800fcd834c838a8a752d1e456aa159218154c884
   project: git-proj-xingsheng
   categories: []
 spec:
@@ -33,16 +33,16 @@ spec:
     steps:
       double:
         kind: task
-        handler: mylib.double
+        handler: src.mylib.double
         after: []
       add3:
         kind: task
-        handler: mylib.add3
+        handler: src.mylib.add3
         after:
         - double
       echo:
         kind: task
-        handler: mylib.echo
+        handler: src.mylib.echo
         after:
         - add3
         responder: true

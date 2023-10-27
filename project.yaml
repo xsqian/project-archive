@@ -5,11 +5,10 @@ metadata:
 spec:
   description: my new project
   functions:
-  - url: src/job_func.py
-    name: myjob
+  - name: myjob
     kind: job
     image: mlrun/mlrun
-    handler: job_func.job_handler
+    handler: src.job_func.job_handler
     with_repo: true
   - name: nuclio
     kind: nuclio
@@ -24,7 +23,7 @@ spec:
   conda: ''
   source: git://github.com/xsqian/project-archive.git#refs/heads/main
   origin_url: git://github.com/xsqian/project-archive.git#refs/heads/main
-  load_source_on_run: true
+  load_source_on_run: false
   desired_state: online
   build:
     commands: []
