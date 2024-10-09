@@ -1,30 +1,29 @@
 kind: project
 metadata:
-  name: vistra-3393
-  created: '2023-11-07T04:35:14.918000'
+  name: gitproject-xingsheng
 spec:
   functions:
-  - url: ./src/job_func.py
-    name: bench-main-inference
+  - url: src/job_func.py
+    name: myjob
     kind: job
+    image: mlrun/mlrun
     handler: src.job_func.job_handler
+    with_repo: true
+  - name: nuclio
+    kind: nuclio
+    image: mlrun/mlrun
+    handler: nuclio_func:nuclio_handler
+    with_repo: true
+  - url: serving.yaml
+    name: serving
     with_repo: true
   workflows: []
   artifacts: []
   conda: ''
-  source: git://github.com/xsqian/project-archive.git#main
+  source: git://github.com/xsqian/project-archive.git#refs/heads/main
   origin_url: git://github.com/xsqian/project-archive.git#refs/heads/main
-  load_source_on_run: false
   desired_state: online
-  owner: xingsheng
-  default_image: 669994010164.dkr.ecr.us-east-1.amazonaws.com/mlrun-project-image-vistra-3393
   build:
-    image: .mlrun-project-image-vistra-3393
-    base_image: mlrun/mlrun:1.4.1
     commands: []
-    with_mlrun: true
-    requirements:
-    - pandas
+    requirements: []
   custom_packagers: []
-status:
-  state: online

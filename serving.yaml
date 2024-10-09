@@ -1,8 +1,8 @@
 kind: serving
 metadata:
   name: serving
-  hash: 800fcd834c838a8a752d1e456aa159218154c884
-  project: git-proj-xingsheng
+  hash: 8e9a5ae3ad4ec28d0fee28f47aff0db6f6089e06
+  project: gitproject-xingsheng
   categories: []
 spec:
   command: ''
@@ -22,6 +22,8 @@ spec:
     limits:
       memory: 20Gi
       cpu: '2'
+  node_selector:
+    app.iguazio.com/node-group: added-ondemand
   priority_class_name: igz-workload-medium
   preemption_mode: prevent
   min_replicas: 1
