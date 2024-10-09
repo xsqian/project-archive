@@ -19,7 +19,7 @@ from src.mylib import myfunc
 # mlrun nuclio runtime entry
 def nuclio_handler(context, event):
     myfunc()
-    return context.Response(body='Hello!',
+    return context.Response(body='Hello, Hello !',
                             headers={},
                             content_type='text/plain',
                             status_code=200)

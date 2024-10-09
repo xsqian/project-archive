@@ -1,6 +1,7 @@
 kind: project
 metadata:
   name: gitproject-xingsheng
+  created: '2024-10-09T18:17:59.543000'
 spec:
   functions:
   - url: src/job_func.py
@@ -12,7 +13,7 @@ spec:
   - name: nuclio
     kind: nuclio
     image: mlrun/mlrun
-    handler: nuclio_func:nuclio_handler
+    handler: src.subsir1.nuclio_func:nuclio_handler
     with_repo: true
   - url: serving.yaml
     name: serving
@@ -27,3 +28,5 @@ spec:
     commands: []
     requirements: []
   custom_packagers: []
+status:
+  state: online
